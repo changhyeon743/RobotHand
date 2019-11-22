@@ -14,6 +14,8 @@ public:
 	MoveManager();
 	~MoveManager();
 
+
+	Vector2 destination;
 	Player* p;
 	Enemy* e;
 	BulletManager* bm;

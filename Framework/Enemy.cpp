@@ -24,7 +24,6 @@ void Enemy::Shoot()
 	Bullet* b = bm->PushBackEnemyBullet(
 		new Bullet(L"resources/player/hand.png", 800.0f, 0.0f, bm->PredictDirection() , 0.00f, 1.0f)
 	);
-	b->transform->SetScale(0.2f, 0.2f);
 
 	b->transform->position = transform->position;
 }
@@ -34,7 +33,6 @@ void Enemy::Shoot(float dir)
 	Bullet* b = bm->PushBackEnemyBullet(
 			new Bullet(L"resources/player/hand.png", 300.0f, 0.0f, dir, 0.00f, 1.0f)
 		);
-	b->transform->SetScale(0.1f, 0.1f);
 
 	b->transform->position = transform->position;
 }

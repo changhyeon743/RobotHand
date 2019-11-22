@@ -21,6 +21,14 @@ void MoveManager::Update()
 		p->transform->position.x -= p->moveSpeed;
 	}
 
+	if (InputManager::GetKeyDown(VK_LBUTTON)) {
+		destination = InputManager::GetMouseVector2();
+	}
+
+	p->transform->position.x = destination.x;
+	p->transform->position.y = destination.y;
+
+
 	Vector2 player = p->transform->position;
 	Vector2 enemy = e->transform->position;
 	
