@@ -8,13 +8,17 @@
 class MoveManager :
 	public GameObject
 {
+private:
+	bool moving;
 public:
 	MoveManager(Player* p, Enemy* e, BulletManager* bm);
 	virtual void Update();
 	MoveManager();
 	~MoveManager();
 
+	
 
+	Vector2 depart;
 	Vector2 destination;
 	Player* p;
 	Enemy* e;

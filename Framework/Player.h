@@ -17,6 +17,8 @@ public:
 	double direction;
 	virtual void Update();	//업데이트 처리
 
+	int score;
+
 	void Hit(float damage);
 
 

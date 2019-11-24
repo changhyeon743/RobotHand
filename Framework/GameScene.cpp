@@ -24,10 +24,8 @@ void GameScene::Initialize()
 	player->transform->SetPosition(160.0f, 100.0f);
 
 	bm = (BulletManager*)PushBackGameObject(new BulletManager());	//¿©±â
-	Enemy* e = (Enemy*)PushBackGameObject( new Enemy( L"resources/player/enemy.jpg", bm));
-	e->transform->SetScale(0.1f, 0.1f);
+	Enemy* e = (Enemy*)PushBackGameObject( new Enemy( L"resources/player/enemy.png", bm));
 	e->transform->SetPosition(160.0f, 500.0f);
-
 
 	//player->SetEnemy(e);
 	

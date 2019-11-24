@@ -143,3 +143,11 @@ inline void Vector2::SetVector(float x, float y)
 	this->x = x;
 	this->y = y;
 }
+
+inline float Vector2::GetDistance(Vector2 value1)
+{
+	float yy = this->y - value1.y;
+	float xx = this->x - value1.x;
+	float distance = (float)sqrtf(yy*yy + xx*xx);
+	return distance;
+}

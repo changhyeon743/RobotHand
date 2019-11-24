@@ -22,7 +22,7 @@ void Enemy::Shoot()
 	
 	//printf("%f", atan2(p.y - e.y, p.x - e.x));
 	Bullet* b = bm->PushBackEnemyBullet(
-		new Bullet(L"resources/player/hand.png", 800.0f, 0.0f, bm->PredictDirection() , 0.00f, 1.0f)
+		new Bullet(L"resources/player/hand.png", 630.0f, 0.0f, bm->PredictDirection() , 0.00f, 1.0f)
 	);
 
 	b->transform->position = transform->position;

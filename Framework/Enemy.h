@@ -3,7 +3,6 @@
 #include "CircleCollider.h"
 #include "BulletManager.h"
 #include <cstdlib>
-
 #include "Player.h"
 
 class Enemy :

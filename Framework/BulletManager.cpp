@@ -60,7 +60,7 @@ void BulletManager::PushBackDirection(float d)
 float BulletManager::PredictDirection()
 {
 	if (!directions.empty())
-		return directions.back() + (rand() % 3 + -1) * (rand() % 3 + 1) * 0.1f;
+		return directions.back() + (rand() % 3 + -1) * (rand() % 3 + 1) * 0.05f;
 	else
 		return 0.0f;
 	/*float xSum = 0, ySum = 0, xxSum = 0, xySum = 0, slope, intercept;
