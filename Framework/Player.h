@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "BulletManager.h"			//여기
 #include "Enemy.h"
 
 using namespace std;
@@ -17,11 +16,13 @@ public:
 	double direction;
 	virtual void Update();	//업데이트 처리
 
+	Bullet* target;
 	int score;
 
-	void Hit(float damage);
+	void Hit(Bullet* b);
 
 
 	CircleCollider* col;
+	bool CheckOutOfScreen();
 };
 

@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "MoveManager.h"
 
 class PhysicsManager :
 	public GameObject

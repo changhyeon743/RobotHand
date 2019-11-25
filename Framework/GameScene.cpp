@@ -20,7 +20,7 @@ void GameScene::Initialize()
 
 	
 
-	player = (Player*)PushBackGameObject(new Player(L"resources/player/Player.png"));		//여기
+	player = (Player*)PushBackGameObject(new Player(L"resources/player/player.png"));		//여기
 	player->transform->SetPosition(160.0f, 100.0f);
 
 	bm = (BulletManager*)PushBackGameObject(new BulletManager());	//여기
@@ -29,7 +29,7 @@ void GameScene::Initialize()
 
 	//player->SetEnemy(e);
 	
-	
+	mm = (MoveManager*)PushBackGameObject(new MoveManager(player, e, bm));
+
 	PhysicsManager* physicsManager = (PhysicsManager*)PushBackGameObject(new PhysicsManager(player, e, bm));
-	mm = (MoveManager*)PushBackGameObject(new MoveManager(player,e, bm));
 }

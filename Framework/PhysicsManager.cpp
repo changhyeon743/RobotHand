@@ -17,8 +17,8 @@ void PhysicsManager::LateUpdate()
 	for (Bullet* i : bm->enemyBullets) {
 		if (i->col->Intersected(*player->col)) {
 			std::cout << "hit" << std::endl;
-			player->Hit(10.0f);
-			bm->Destroy(i);
+			player->Hit(i);
+			//bm->Destroy(i);
 		}
 	}
 }

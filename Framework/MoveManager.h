@@ -9,14 +9,14 @@ class MoveManager :
 	public GameObject
 {
 private:
-	bool moving;
+	bool movingRight;
 public:
 	MoveManager(Player* p, Enemy* e, BulletManager* bm);
 	virtual void Update();
+	virtual void LateUpdate();
 	MoveManager();
 	~MoveManager();
 
-	
 
 	Vector2 depart;
 	Vector2 destination;
