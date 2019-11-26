@@ -31,7 +31,6 @@ void BulletManager::Update()
 				i->angle -= 3.14f;
 			}
 			else {
-
 				Destroy(i);
 			}
 		}

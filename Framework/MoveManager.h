@@ -16,7 +16,7 @@ public:
 	virtual void LateUpdate();
 	MoveManager();
 	~MoveManager();
-
+	int delay;
 
 	Vector2 depart;
 	Vector2 destination;

@@ -3,9 +3,9 @@
 #include "Framework.h"
 
 #include "GameScene.h"
+#include "StartScene.h"
 
-
-MoveManager::MoveManager(Player * p, Enemy * e, BulletManager* bm) : p(p), e(e), bm(bm), movingRight(false)
+MoveManager::MoveManager(Player * p, Enemy * e, BulletManager* bm) : p(p), e(e), bm(bm), movingRight(false), delay(0)
 {
 	destination = p->transform->position;
 	depart = destination;
@@ -17,7 +17,7 @@ void MoveManager::LateUpdate()
 		if (p->target != nullptr) {
 			p->transform->position = p->target->transform->position;
 		}
-		
+		 
 	}
 
 	*/
@@ -29,6 +29,9 @@ void MoveManager::LateUpdate()
 
 void MoveManager::Update()
 {
+	if (delay > 0) {
+		delay--;
+	}
 	if (p->CheckOutOfScreen()) {
 		std::wstring item = L"Á¡¼ö: ";
 		item.append(std::to_wstring(p->score));
@@ -36,46 +39,34 @@ void MoveManager::Update()
 
 		MessageBoxW(NULL, item.c_str(), content, MB_OK | MB_ICONINFORMATION);
 		
-		Scene::ChangeScene(new GameScene());
+		Scene::ChangeScene(new StartScene());
 	}
 	
-	if (InputManager::GetMyKeyState(VK_UP)) {
-		p->transform->position.y -= p->moveSpeed;
-	}
-	if (InputManager::GetMyKeyState(VK_DOWN)) {
-		p->transform->position.y += p->moveSpeed;
-	}
-	if (InputManager::GetMyKeyState(VK_RIGHT)) {
-		p->transform->position.x += p->moveSpeed;
-	}
-	if (InputManager::GetMyKeyState(VK_LEFT)) {
-		p->transform->position.x -= p->moveSpeed;
-	}
 
 	if (InputManager::GetKeyDown(VK_RBUTTON)) {
 		destination = InputManager::GetMouseVector2();
 		depart = p->transform->position;
 	}
 	if (InputManager::GetKeyDown(VK_SPACE)) {
-		Vector2 mouse = InputManager::GetMouseVector2();
-		Vector2 player = p->transform->position;
+		if (delay == 0) {
+			Vector2 mouse = InputManager::GetMouseVector2();
+			Vector2 player = p->transform->position;
 
 
-		float a = atan2(mouse.y - player.y, mouse.x - player.x);
-		p->transform->position.x += cos(a) * 80;
-		p->transform->position.y += sin(a) * 80;
+			float a = atan2(mouse.y - player.y, mouse.x - player.x);
+			p->transform->position.x += cos(a) * 80;
+			p->transform->position.y += sin(a) * 80;
 
 
-		destination = p->transform->position;
+			destination = p->transform->position;
+			delay = 400;
+		}
 	}
 
 	if (InputManager::GetKeyDown('S')) {
 		destination = p->transform->position;
 	}
 
-	
-
-	
 	
 	if (p->transform->position.GetDistance(destination) > 1) {
 		float yy = destination.y - depart.y;

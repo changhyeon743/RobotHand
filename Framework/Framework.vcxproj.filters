@@ -99,6 +99,8 @@
       <Filter>Manager</Filter>
     </ClCompile>
     <ClCompile Include="MoveManager.cpp" />
+    <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="Background.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinApp.h">
@@ -181,6 +183,8 @@
       <Filter>Manager</Filter>
     </ClInclude>
     <ClInclude Include="MoveManager.h" />
+    <ClInclude Include="StartScene.h" />
+    <ClInclude Include="Background.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Math.inl">

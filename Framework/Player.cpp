@@ -27,7 +27,10 @@ void Player::Update()
 
 void Player::Hit(Bullet* b)
 {
-	target = b;
+	if (target == NULL) {
+		target = b;
+	}
+	
 	//hp -= damage;
 	//std::cout << "À¸¾Ç!!" << hp << "³²À½ ¤Ð¤Ð" << std::endl;
 }
@@ -44,6 +47,5 @@ bool Player::CheckOutOfScreen()
 	int bw = (int) this->renderer->GetSprite().GetSize().x;
 	int bh = (int)renderer->GetSprite().GetSize().y;
 
-	std::cout << transform->position.y << "/" << sh - bh - 50 << std::endl;
 	return transform->position.y > sh -bh - 50;
 }

@@ -74,7 +74,7 @@ Direction Bullet::CheckOutOfScreen()
 	else if (pos.y < scale.y * bh * (-1.0f)){
 		return UP;
 	}
-	else if (pos.y > scale.y * bh + sh){
+	else if (pos.y > scale.y * bh + sh - 90){
 		return DOWN;
 	}
 	else {
